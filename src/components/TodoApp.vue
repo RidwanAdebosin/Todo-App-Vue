@@ -10,7 +10,9 @@
         placeholder="Enter task"
         class="form-control"
       />
-      <button>Submit</button>
+      <button class="btn btn-warning rounded-0" @click="submitTask">
+        Submit
+      </button>
     </div>
 
     <!-- Table -->
@@ -32,20 +34,20 @@
           </td>
           <td>
             <span
-              class="pointer select"
+              class="pointer noselect"
               @click="changeStatus(index)"
               :class="{
                 'text-danger': task.status === 'to-do',
-                'text-success': task.status === 'to-do',
-                'text-waarning': task.status === 'to-do',
+                'text-success': task.status === 'finished',
+                'text-waarning': task.status === 'in-progress',
               }"
             >
+              <!-- {{ capitalizeFirstChar(task.status) }} -->
             </span>
           </td>
-          <!-- <td>add anything here</td>
-          <td>to do</td> -->
+
           <td>
-            <div @click="editTask(index)" class="thrash">
+            <div @click="deleteTask(index)" class="thrash">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -60,8 +62,9 @@
               </svg>
             </div>
           </td>
+
           <td>
-            <div @click="deleteTak(index)" class="pencil">
+            <div @click="editTask(index)" class="pencil">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -110,13 +113,38 @@ export default {
     };
   },
   methods: {
-    capitalizedFirstChart(str) {
-      return str.chartAt(0).toUppercase() + str.slice(1);
+    capitalizeFirstChar(str) {
+      return str.charAt(0).toUppercase() + str.slice(1);
     },
     changeStatus(index) {
-      let newIndex = this.statuses.indexOf(this.task[index].status);
+      let newIndex = this.statuses.indexOf(
+        this.tasks[index].status.toLocaleLowerCase()
+      );
       if (++newIndex > 2) newIndex = 0;
       this.tasks[index].status = this.statuses[newIndex];
+    },
+
+    //deleteTak
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
+    },
+    //edit task
+    editTask(index) {
+      this.task = this.tasks[index].name;
+      this.editedTask = index;
+    },
+    submitTask() {
+      if (this.task.length === 0) return;
+      if (this.editedTask != null) {
+        this.tasks[this.editedTask].name = this.task;
+        this.editedTask = null;
+      } else {
+        this.tasks.push({
+          name: this.task,
+          status: "todo",
+        });
+      }
+      this.task = "";
     },
   },
 };
