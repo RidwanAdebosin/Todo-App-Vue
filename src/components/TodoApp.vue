@@ -9,6 +9,7 @@
         v-model="task"
         placeholder="Enter task"
         class="form-control"
+        @keyup.enter="submitTask"
       />
       <button class="btn btn-warning rounded-0" @click="submitTask">
         Submit
