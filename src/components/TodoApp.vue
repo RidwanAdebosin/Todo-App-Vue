@@ -98,24 +98,24 @@ export default {
       editedTask: null,
       statuses: ["to do", "in-progress", "finished"],
       tasks: [
-        {
-          name: "code",
-          status: "to do",
-        },
-        {
-          name: "subscribe now",
-          status: "in-progress",
-        },
-        {
-          name: "Create YouTube video",
-          status: "finished",
-        },
+        // {
+        //   name: "code",
+        //   status: "to do",
+        // },
+        // {
+        //   name: "subscribe now",
+        //   status: "in-progress",
+        // },
+        // {
+        //   name: "Create YouTube video",
+        //   status: "finished",
+        // },
       ],
     };
   },
   methods: {
     capitalizeFirstChar(str) {
-      return str.charAt(0).toUppercase() + str.slice(1);
+      return str.charAt(0).toUpperCase() + str.slice(1);
     },
     changeStatus(index) {
       let newIndex = this.statuses.indexOf(
