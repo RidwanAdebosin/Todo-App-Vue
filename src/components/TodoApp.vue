@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- Heading -->
-    <h2 class="heading">My vue to do app</h2>
+    <h2 class="heading">To-Do</h2>
     <!-- Input -->
     <div class="input">
       <input
@@ -11,9 +11,7 @@
         class="form-control"
         @keyup.enter="submitTask"
       />
-      <button class="btn btn-warning rounded-0" @click="submitTask">
-        Submit
-      </button>
+      <button class="btn" @click="submitTask">Submit</button>
     </div>
 
     <!-- Table -->
@@ -40,10 +38,10 @@
               :class="{
                 'text-danger': task.status === 'to-do',
                 'text-success': task.status === 'finished',
-                'text-waarning': task.status === 'in-progress',
+                'text-warning': task.status === 'in-progress',
               }"
             >
-              <!-- {{ capitalizeFirstChar(task.status) }} -->
+              {{ capitalizeFirstChar(task.status) }}
             </span>
           </td>
 
