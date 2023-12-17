@@ -116,8 +116,13 @@ td {
     gap: 5px;
   }
 
+  input {
+    inline-size: 80%;
+  }
+
   .btn {
     inline-size: 50px;
     margin: 0 auto;
+    padding: 10px;
   }
 }
