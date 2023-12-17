@@ -103,7 +103,7 @@ td {
   cursor: pointer;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 400px) {
   .container {
     width: 390px;
     margin-inline-start: 5px;
@@ -112,12 +112,12 @@ td {
 
   .input {
     display: grid;
-    inline-size: 400px;
+    inline-size: 300px;
     gap: 5px;
   }
 
   .btn {
-    inline-size: 200px;
+    inline-size: 100px;
     margin: 0 auto;
   }
 }
