@@ -105,19 +105,19 @@ td {
 
 @media (max-width: 400px) {
   .container {
-    width: 390px;
+    width: 350px;
     margin-inline-start: 5px;
     margin-inline-end: 5px;
   }
 
   .input {
     display: grid;
-    inline-size: 300px;
+    inline-size: 200px;
     gap: 5px;
   }
 
   .btn {
-    inline-size: 100px;
+    inline-size: 50px;
     margin: 0 auto;
   }
 }
