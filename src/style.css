@@ -105,7 +105,9 @@ td {
 
 @media (max-width: 800px) {
   .container {
-    width: 414px;
+    width: 390px;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
   }
 
   .input {
